@@ -33,7 +33,7 @@ class Test:
         print("PASSED: header is correct!")
         print("END TEST: Authorization")
 
-    def test_add_product_to_cart(self):
+    def test_add_product_to_cart(self, product_number):
         print("\nSTART TEST: Add product to cart")
 
         # Авторизуемся, если пользователь не авторизован.
@@ -43,7 +43,7 @@ class Test:
 
         # Добавляем первый товар в корзину.
         self.__driver.click_button(
-            self._locators.get_product_locator(1), "Add to cart")
+            self._locators.get_product_locator(product_number), "Add to cart")
 
         # Проверяем, что счетчик корзины равен "1".
         cart_counter = self.__driver.get_text(self._locators.CART_COUNTER)
@@ -90,7 +90,7 @@ test.start("https://www.saucedemo.com/")
 # Запускаем тест авторизации пользователя.
 test.test_authorization()
 # Запускаем тест добавления товара в корзину.
-test.test_add_product_to_cart()
+test.test_add_product_to_cart(1)
 # Запускаем тест открытия страницы корзины.
 test.test_enter_to_cart()
 # Закрываем браузер после тестирования.
