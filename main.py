@@ -43,7 +43,7 @@ class Test:
 
         # Добавляем первый товар в корзину.
         self.__driver.click_button(
-            self._locators.get_product_locator(1), "Add to cart")
+            self._locators.get_product_locator(7), "Add to cart")
 
         # Проверяем, что счетчик корзины равен "1".
         cart_counter = self.__driver.get_text(self._locators.CART_COUNTER)

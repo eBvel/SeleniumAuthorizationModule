@@ -13,6 +13,9 @@ class StoreLocators:
     CART_HEADER = (By.XPATH, "//span[@class='title']")
 
     def get_product_locator(self, product_number):
-        return (By.XPATH,
-                f"(//button[contains(text(), 'Add to cart')])"
-                f"[{product_number}]")
+        if 0 < product_number < 7:
+            return (By.XPATH,
+                    f"(//button[contains(text(), 'Add to cart')])"
+                    f"[{product_number}]")
+        else:
+            return None
